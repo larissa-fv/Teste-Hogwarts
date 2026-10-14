@@ -3,129 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>O Portão de Hogwarts</title>
+<title>Monte a Lista do Filch</title>
 <style>
-:root{--bg:#eef1f8;--panel:#fff;--ink:#1a2038;--mut:#5a6385;--line:#cfd6ea;--gold:#9a6a00;--ok:#1f7a4d;--okbg:#e2f4ea;--bad:#b3283d;--badbg:#fbe6ea;--hit:#fff3cf;--code:#101530;--codeink:#e8ecff;
+:root{--bg:#eef1f8;--panel:#fff;--ink:#1a2038;--mut:#5a6385;--line:#cfd6ea;--gold:#9a6a00;--ok:#1f7a4d;--okbg:#e2f4ea;--bad:#b3283d;--badbg:#fbe6ea;--sky:#dfe6f7;--code:#101530;--codeink:#e8ecff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10152b;--panel:#1a2142;--ink:#eef0f9;--mut:#a3accb;--line:#313b6b;--gold:#f0b94d;--ok:#6ad39b;--okbg:#14382a;--bad:#ff8497;--badbg:#44202b;--hit:#463a12;--code:#0a0e20}}
-:root[data-theme="dark"]{--bg:#10152b;--panel:#1a2142;--ink:#eef0f9;--mut:#a3accb;--line:#313b6b;--gold:#f0b94d;--ok:#6ad39b;--okbg:#14382a;--bad:#ff8497;--badbg:#44202b;--hit:#463a12;--code:#0a0e20}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10152b;--panel:#1a2142;--ink:#eef0f9;--mut:#a3accb;--line:#313b6b;--gold:#f0b94d;--ok:#6ad39b;--okbg:#14382a;--bad:#ff8497;--badbg:#44202b;--sky:#232c58;--code:#0a0e20}}
+:root[data-theme="dark"]{--bg:#10152b;--panel:#1a2142;--ink:#eef0f9;--mut:#a3accb;--line:#313b6b;--gold:#f0b94d;--ok:#6ad39b;--okbg:#14382a;--bad:#ff8497;--badbg:#44202b;--sky:#232c58;--code:#0a0e20}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
-header{max-width:720px;margin:0 auto;padding:18px 16px 4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{max-width:860px;margin:0 auto;padding:16px 16px 0;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
 h1{font:700 1.5rem/1.2 "Palatino Linotype",Palatino,Georgia,serif;margin:0;color:var(--gold)}
 .stats{color:var(--mut);font-size:.95rem}
-main{max-width:720px;margin:0 auto;padding:8px 16px 40px}
-h2{font:700 1.35rem/1.3 "Palatino Linotype",Palatino,Georgia,serif;margin:12px 0 4px}
-.intro{margin:0 0 14px;color:var(--mut)}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
-.box h3{margin:0 0 8px;font-size:1rem;color:var(--mut);font-weight:600}
-ol.rules{margin:0;padding:0;list-style:none}
-ol.rules li{display:flex;gap:10px;padding:8px 10px;border-radius:8px;border:1px solid transparent}
-ol.rules li b{min-width:1.4em;color:var(--mut)}
-ol.rules li.hit{background:var(--hit);border-color:var(--gold)}
-ol.rules li.inv{color:var(--mut);font-style:italic}
-.pc{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
-.pc dt{color:var(--mut)}
-.pc dd{margin:0;font-weight:600}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-button{font:inherit;font-weight:700;padding:12px 20px;border-radius:10px;border:2px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;min-height:48px}
+main{max-width:860px;margin:0 auto;padding:8px 16px 40px}
+h2{font:700 1.3rem/1.3 "Palatino Linotype",Palatino,Georgia,serif;margin:10px 0 2px}
+.mut{color:var(--mut);margin:0 0 10px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.box h3{margin:0 0 8px;font-size:.95rem;color:var(--mut);font-weight:600}
+.scene{position:relative;height:84px;background:var(--sky);border-radius:10px;border:1px solid var(--line);overflow:hidden;margin:10px 0}
+.scene .g{position:absolute;left:46%;top:0;bottom:0;width:8%;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.6rem;border-left:3px dashed var(--gold);border-right:3px dashed var(--gold)}
+.scene .g small{font-size:.65rem;color:var(--mut)}
+.scene .w,.scene .c{position:absolute;top:6px;font-size:.75rem;color:var(--mut)}
+.scene .w{left:8px}.scene .c{right:8px}
+.chip{position:absolute;top:30px;left:2%;background:var(--panel);border:2px solid var(--line);border-radius:20px;padding:2px 10px;font-size:.85rem;font-weight:600;white-space:nowrap;transition:left .7s ease-in-out}
+.chip.p{border-color:var(--ok)}.chip.d{border-color:var(--bad)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}}
+.rule{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;margin:6px 0;background:var(--panel)}
+.rule .t{flex:1}
+.rule b.n{color:var(--mut);min-width:1.3em}
+.tag{font-size:.75rem;font-weight:700;padding:1px 7px;border-radius:8px}
+.tag.p{background:var(--okbg);color:var(--ok)}.tag.d{background:var(--badbg);color:var(--bad)}
+button{font:inherit;font-weight:700;padding:8px 12px;border-radius:9px;border:2px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;min-height:44px}
+button.s{padding:4px 9px;min-height:36px;font-size:.9rem}
+button:disabled{opacity:.4;cursor:not-allowed}
 button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-button.go{border-color:var(--ok);color:var(--ok)}
-button.stop{border-color:var(--bad);color:var(--bad)}
 button.main{background:var(--gold);border-color:var(--gold);color:#14110a}
-.fb{border-radius:10px;padding:12px 16px;margin:12px 0;border:1px solid}
-.fb.ok{background:var(--okbg);border-color:var(--ok)}
-.fb.bad{background:var(--badbg);border-color:var(--bad)}
-.fb strong{display:block;margin-bottom:2px}
-pre{background:var(--code);color:var(--codeink);padding:12px 14px;border-radius:8px;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0 0}
-.big{font:700 2.4rem/1 "Palatino Linotype",Georgia,serif;color:var(--gold)}
-@media (prefers-reduced-motion:no-preference){.fb{animation:in .2s ease-out}@keyframes in{from{opacity:0;transform:translateY(4px)}}}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.res{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.res:last-child{border:0}
+.res .i{font-weight:700;min-width:1.4em}.ok .i{color:var(--ok)}.no .i{color:var(--bad)}
+.hint{background:var(--badbg);border:1px solid var(--bad);border-radius:10px;padding:10px 14px;margin:10px 0}
+.win{background:var(--okbg);border:1px solid var(--ok);border-radius:10px;padding:10px 14px;margin:10px 0}
+pre{background:var(--code);color:var(--codeink);padding:12px 14px;border-radius:8px;overflow-x:auto;font:13.5px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0 0}
+.big{font:700 2.2rem/1 "Palatino Linotype",Georgia,serif;color:var(--gold);margin:6px 0}
+@media (prefers-reduced-motion:reduce){.chip{transition:none}}
 </style>
 </head>
 <body>
-<header><h1>O Portão de Hogwarts</h1><div class="stats" id="stats" aria-live="polite"></div></header>
-<main id="stage"></main>
+<header><h1>Monte a Lista do Filch</h1><div class="stats" id="stats" aria-live="polite"></div></header>
+<main id="m"></main>
 <script>
-const G=c=>c.casa==='Grifinória';
-const R=[
-{t:'Rodada 1: a ordem das regras',intro:'Você é o Filch. Leia a lista de cima para baixo e decida quem passa pelo portão.',
-rules:[{x:'Permitir: alunos da Grifinória',a:'P',f:G},{x:'Barrar: Harry Potter',a:'D',f:c=>c.nome==='Harry Potter'}],
-cards:[{nome:'Hermione Granger',casa:'Grifinória',a:'P',w:'A regra 1 combinou e o Filch parou de ler.'},
-{nome:'Harry Potter',casa:'Grifinória',a:'P',w:'Surpresa: Harry é da Grifinória, então a regra 1 combina primeiro. A regra 2 nunca é lida.'},
-{nome:'Draco Malfoy',casa:'Sonserina',a:'D',w:'Nenhuma regra citou a Sonserina, então ele não passa.'}],
-L:{t:'A primeira regra que combina vale',x:'A regra de barrar o Harry ficou inútil porque veio depois da regra geral. Na ACL, o roteador lê de cima para baixo e para na primeira que combina.',c:'access-list 10 permit 192.168.20.0 0.0.0.255\naccess-list 10 deny host 192.168.20.99   ! nunca é alcançada'}},
-{t:'Rodada 2: específica primeiro',intro:'Mesma lista, agora com a ordem corrigida.',
-rules:[{x:'Barrar: Harry Potter',a:'D',f:c=>c.nome==='Harry Potter'},{x:'Permitir: alunos da Grifinória',a:'P',f:G}],
-cards:[{nome:'Harry Potter',casa:'Grifinória',a:'D',w:'Agora a regra do Harry vem primeiro e ele é barrado.'},
-{nome:'Ron Weasley',casa:'Grifinória',a:'P',w:'Não é o Harry, então a regra 1 não combina. A regra 2 o deixa passar.'},
-{nome:'Draco Malfoy',casa:'Sonserina',a:'D',w:'Nenhuma regra combina com ele.'}],
-L:{t:'Regra específica antes da geral',x:'Coloque as exceções no topo e as regras amplas embaixo.',c:'access-list 10 deny host 192.168.20.99\naccess-list 10 permit 192.168.20.0 0.0.0.255'}},
-{t:'Rodada 3: a regra invisível',intro:'A lista agora só tem uma linha.',
-rules:[{x:'Permitir: alunos da Lufa-Lufa',a:'P',f:c=>c.casa==='Lufa-Lufa'}],
-cards:[{nome:'Hannah Abbott',casa:'Lufa-Lufa',a:'P',w:'Está na regra 1.'},
-{nome:'Luna Lovegood',casa:'Corvinal',a:'D',w:'Ninguém a proibiu, mas ela não está na lista. Cai na regra invisível do final.'},
-{nome:'Cedrico Diggory',casa:'Lufa-Lufa',a:'P',w:'Está na regra 1.'}],
-L:{t:'O bloqueio invisível',x:'Toda ACL termina com um deny implícito: o que não foi permitido é bloqueado.',c:'access-list 10 permit 192.168.30.0 0.0.0.255\n! (invisível) deny any'}},
-{t:'Rodada 4: o curinga',intro:'A identificação do aluno tem quatro campos: Casa . Ano . Turma . Aluno. O último campo é curinga.',
-rules:[{x:'Permitir: Grifinória . 3 . A . qualquer aluno',a:'P',f:c=>c.casa==='Grifinória'&&c.ano===3&&c.turma==='A'}],
-cards:[{id:'Grifinória . 3 . A . 12',casa:'Grifinória',ano:3,turma:'A',a:'P',w:'Os três primeiros campos batem. O número do aluno não importa.'},
-{id:'Grifinória . 3 . B . 7',casa:'Grifinória',ano:3,turma:'B',a:'D',w:'A turma é B, e esse campo precisa ser igual.'},
-{id:'Grifinória . 3 . A . 31',casa:'Grifinória',ano:3,turma:'A',a:'P',w:'De novo: só o último campo muda, e ele é ignorado.'},
-{id:'Sonserina . 3 . A . 5',casa:'Sonserina',ano:3,turma:'A',a:'D',w:'A Casa é diferente.'}],
-L:{t:'Máscara curinga: 0 confere, 255 ignora',x:'Onde a máscara tem 0, o campo precisa ser igual. Onde tem 255, qualquer valor serve.',c:'access-list 10 permit 192.168.10.0 0.0.0.255\n! confere 192 . 168 . 10 e ignora o último número'}},
-{t:'Rodada 5: origem, destino e serviço',intro:'Agora o Filch olha também aonde o aluno vai e o que quer fazer.',
-rules:[{x:'Permitir: aluno → Biblioteca, para ler',a:'P',f:c=>c.dest==='Biblioteca'&&c.ativ==='ler'},{x:'Barrar: aluno → Biblioteca, qualquer outra atividade',a:'D',f:c=>c.dest==='Biblioteca'},{x:'Permitir: todo o resto',a:'P',f:c=>true}],
-cards:[{nome:'Aluno do 2º ano',dest:'Biblioteca',ativ:'ler',a:'P',w:'Regra 1: ler na biblioteca é permitido.'},
-{nome:'Aluno do 2º ano',dest:'Biblioteca',ativ:'duelar',a:'D',w:'A regra 1 não combina (não é ler), mas a regra 2 pega qualquer outra atividade na Biblioteca.'},
-{nome:'Aluno do 2º ano',dest:'Salão Principal',ativ:'comer',a:'P',w:'Não é Biblioteca, então cai na regra 3.'}],
-L:{t:'ACL estendida',x:'Ela olha origem, destino e o serviço (porta). Por isso é mais precisa que a padrão.',c:'permit tcp 192.168.20.0 0.0.0.255 host 192.168.30.10 eq 80\ndeny ip 192.168.20.0 0.0.0.255 host 192.168.30.10\npermit ip any any'}},
-{t:'Rodada 6: a Poção Polissuco',intro:'Alguém de fora pode se passar por aluno. A pista: de onde ele chegou.',
-rules:[{x:'Barrar: quem diz ser aluno mas chegou pelo portão de fora',a:'D',f:c=>c.diz==='aluno'&&c.por==='fora'},{x:'Permitir: todo o resto',a:'P',f:c=>true}],
-cards:[{nome:'Neville Longbottom',diz:'aluno',por:'dentro',a:'P',w:'Aluno e chegou por dentro. Tudo coerente.'},
-{nome:'«Ron Weasley»',diz:'aluno',por:'fora',a:'D',w:'Diz ser aluno, mas chegou pelo portão de fora. É a Polissuco.'},
-{nome:'Visitante querendo ir a Hogsmeade',diz:'visitante',por:'fora',a:'P',w:'Não finge ser aluno, então cai na regra 2.'}],
-L:{t:'Spoofing: endereço falso',x:'Um pacote vindo da internet não pode ter endereço de origem da rede interna. Bloqueia-se na entrada pela internet.',c:'ip access-list extended ANTI-SPOOF\n deny ip 192.168.0.0 0.0.255.255 any\n permit ip any any'}},
-{t:'Rodada 7: a Madame Rosmerta',intro:'Aqui entra a memória. O caderno diz quem pediu algo nas Três Vassouras.',caderno:['Harry Potter','Hermione Granger'],
-rules:[{x:'Permitir: entregas de pedidos que estão no caderno',a:'P',f:c=>['Harry Potter','Hermione Granger'].includes(c.para)}],
-cards:[{nome:'Cerveja amanteigada',para:'Harry Potter',a:'P',w:'Harry pediu e está no caderno.'},
-{nome:'Hidromel',para:'Ron Weasley',a:'D',w:'Ninguém anotou esse pedido. Não passa.'},
-{nome:'Suco de abóbora',para:'Hermione Granger',a:'P',w:'Hermione pediu e está no caderno.'}],
-L:{t:'Firewall stateful',x:'Ele guarda as conversas em uma tabela de estado. A resposta só passa se alguém de dentro a pediu.',c:'policy-map type inspect PM-IN-OUT\n class type inspect CM-INTERNET\n  inspect   ! ida liberada e a volta também'}},
-{t:'Rodada 8: as Casas (ZPF)',intro:'Cada Casa é uma zona. Leia o regulamento entre elas.',
-rules:[{x:'Barrar: quem ainda não passou pelo Chapéu Seletor (sem Casa)',a:'D',f:c=>c.casa==='sem Casa'},{x:'Permitir: visitas dentro da mesma Casa',a:'P',f:c=>c.casa===c.visita},{x:'Permitir: Grifinória → Corvinal, só para estudar',a:'P',f:c=>c.casa==='Grifinória'&&c.visita==='Corvinal'&&c.ativ==='estudar'}],
-cards:[{nome:'Hermione',casa:'Grifinória',visita:'Grifinória',ativ:'conversar',a:'P',w:'Mesma Casa: livre.'},
-{nome:'Hermione',casa:'Grifinória',visita:'Corvinal',ativ:'estudar',a:'P',w:'Regra 3: existe um regulamento Grifinória → Corvinal para estudar.'},
-{nome:'Ron',casa:'Grifinória',visita:'Sonserina',ativ:'duelar',a:'D',w:'Não há regulamento Grifinória → Sonserina. Entre zonas, o padrão é bloquear.'},
-{nome:'Primeiranista',casa:'sem Casa',visita:'Grifinória',ativ:'conversar',a:'D',w:'Sem Casa, sem conversa. Toda interface precisa estar em uma zona.'}],
-L:{t:'Firewall por zonas',x:'Mesma zona é livre. Entre zonas, só passa o que um par de zonas com política permitir.',c:'zone-pair security ZP-GRIF-CORV source GRIF destination CORV\n service-policy type inspect PM-ESTUDO'}}
+const L=[
+{t:'Fase 1: a ordem das regras',goal:'Só alunos da Grifinória podem passar, menos o Harry, que está de castigo.',
+rules:[{id:'a',x:'Permitir: alunos da Grifinória',a:'P',f:p=>p.casa==='Grifinória',c:'access-list 10 permit 192.168.20.0 0.0.0.255'},
+{id:'b',x:'Barrar: Harry Potter',a:'D',f:p=>p.nome==='Harry',c:'access-list 10 deny host 192.168.20.99'},
+{id:'c',x:'Permitir: todo mundo',a:'P',f:p=>true,c:'access-list 10 permit any'},
+{id:'d',x:'Barrar: alunos da Sonserina',a:'D',f:p=>p.casa==='Sonserina',c:'access-list 10 deny 192.168.30.0 0.0.0.255'}],
+pk:[{n:'Hermione',p:{nome:'Hermione',casa:'Grifinória'},e:'P',w:'Hermione é da Grifinória e não está de castigo.'},{n:'Harry',p:{nome:'Harry',casa:'Grifinória'},e:'D',w:'Harry está de castigo e deve ser barrado.'},{n:'Draco',p:{nome:'Draco',casa:'Sonserina'},e:'D',w:'Draco não é da Grifinória.'},{n:'Ron',p:{nome:'Ron',casa:'Grifinória'},e:'P',w:'Ron é da Grifinória e passa.'}],
+hint:'O roteador para na primeira regra que combina. Quem vem primeiro: a exceção ou a regra geral?',
+tail:'interface g0/1\n ip access-group 10 in',lesson:'Exceção antes da regra geral. E repare: você não precisou barrar a Sonserina. O bloqueio invisível do final já cuida de quem não foi permitido.'},
+{t:'Fase 2: a biblioteca',goal:'Alunos só podem LER na Biblioteca. Em qualquer outro lugar do castelo, ficam livres.',
+rules:[{id:'a',x:'Permitir: aluno → Biblioteca, para ler',a:'P',f:p=>p.dest==='Biblioteca'&&p.ativ==='ler',c:' permit tcp 192.168.20.0 0.0.0.255 host 192.168.30.10 eq 80'},
+{id:'b',x:'Barrar: aluno → Biblioteca, qualquer atividade',a:'D',f:p=>p.dest==='Biblioteca',c:' deny ip 192.168.20.0 0.0.0.255 host 192.168.30.10'},
+{id:'c',x:'Permitir: todo o resto',a:'P',f:p=>true,c:' permit ip any any'},
+{id:'d',x:'Barrar: todo o tráfego',a:'D',f:p=>true,c:' deny ip any any'}],
+pk:[{n:'ler na Biblioteca',p:{dest:'Biblioteca',ativ:'ler'},e:'P',w:'Ler na Biblioteca é permitido.'},{n:'duelar na Biblioteca',p:{dest:'Biblioteca',ativ:'duelar'},e:'D',w:'Só ler é permitido na Biblioteca.'},{n:'comer no Salão',p:{dest:'Salão Principal',ativ:'comer'},e:'P',w:'Fora da Biblioteca, tudo livre.'},{n:'estudar na Biblioteca',p:{dest:'Biblioteca',ativ:'estudar'},e:'D',w:'Estudar não é ler: só ler é permitido nesse servidor.'}],
+hint:'Três regras formam o desenho: a exceção permitida, o bloqueio do resto daquele destino e, por último, a liberação geral.',
+head:'ip access-list extended BIBLIOTECA',tail:'interface g0/1\n ip access-group BIBLIOTECA in',lesson:'É assim que a ACL estendida funciona: origem, destino e serviço. A liberação geral sempre vai por último, senão ela engole as regras de baixo.'},
+{t:'Fase 3: a Poção Polissuco',goal:'Barrar quem diz ser aluno mas chega pelo portão de fora. Alunos de dentro e visitantes comuns continuam passando.',
+rules:[{id:'a',x:'Barrar: diz ser aluno, mas veio de fora',a:'D',f:p=>p.diz==='aluno'&&p.por==='fora',c:' deny ip 192.168.0.0 0.0.255.255 any'},
+{id:'b',x:'Permitir: todo o resto',a:'P',f:p=>true,c:' permit ip any any'},
+{id:'c',x:'Barrar: qualquer um que venha de fora',a:'D',f:p=>p.por==='fora',c:' deny ip any any'}],
+pk:[{n:'Neville (dentro)',p:{diz:'aluno',por:'dentro'},e:'P',w:'Aluno de dentro passa.'},{n:'«Ron» (veio de fora)',p:{diz:'aluno',por:'fora'},e:'D',w:'Diz ser aluno mas veio de fora: Polissuco.'},{n:'visitante de Hogsmeade',p:{diz:'visitante',por:'fora'},e:'P',w:'Visitante comum pode passar.'},{n:'Hermione (dentro)',p:{diz:'aluno',por:'dentro'},e:'P',w:'Aluna de dentro passa.'}],
+hint:'Barrar todo mundo de fora também barra os visitantes legítimos. Escolha só a regra que pega o impostor.',
+head:'ip access-list extended ANTI-SPOOF',tail:'interface s0/0/0\n ip access-group ANTI-SPOOF in',lesson:'Isso é o anti-spoofing: pacotes vindos da internet não podem ter origem de endereço interno. Bloqueie o impossível e libere o resto.'},
+{t:'Fase 4: as Casas',goal:'Mesma Casa: livre. Grifinória pode visitar a Corvinal só para estudar. O resto entre Casas, bloqueado.',
+rules:[{id:'a',x:'Permitir: visitas dentro da mesma Casa',a:'P',f:p=>p.casa===p.visita,c:' ! mesma zona: livre, sem política'},
+{id:'b',x:'Permitir: Grifinória → Corvinal, só para estudar',a:'P',f:p=>p.casa==='Grifinória'&&p.visita==='Corvinal'&&p.ativ==='estudar',c:' zone-pair security ZP-GRIF-CORV source GRIF destination CORV\n  service-policy type inspect PM-ESTUDO'},
+{id:'c',x:'Barrar: quem não tem Casa',a:'D',f:p=>p.casa==='sem Casa',c:' ! interface sem zona: bloqueada com quem tem zona'},
+{id:'d',x:'Permitir: qualquer visita',a:'P',f:p=>true,c:' ! (isso anularia o bloqueio padrão entre zonas)'}],
+pk:[{n:'Hermione → Grifinória (conversar)',p:{casa:'Grifinória',visita:'Grifinória',ativ:'conversar'},e:'P',w:'Mesma Casa: livre.'},{n:'Hermione → Corvinal (estudar)',p:{casa:'Grifinória',visita:'Corvinal',ativ:'estudar'},e:'P',w:'Existe regulamento Grifinória → Corvinal para estudar.'},{n:'Ron → Sonserina (duelar)',p:{casa:'Grifinória',visita:'Sonserina',ativ:'duelar'},e:'D',w:'Não há regulamento para a Sonserina.'},{n:'Primeiranista sem Casa',p:{casa:'sem Casa',visita:'Grifinória',ativ:'conversar'},e:'D',w:'Sem Casa, sem conversa.'}],
+hint:'Entre zonas o padrão já é bloquear. Você precisa liberar só o que o regulamento permite, e nada mais.',
+head:'ZPF: o que a sua lista significa',tail:'',lesson:'No ZPF você só escreve o que é PERMITIDO. Entre zonas, o resto já é bloqueado por padrão, e «permitir qualquer visita» destruiria isso.'}
 ];
-const LB={nome:'Quem é',id:'Identificação',casa:'Casa',dest:'Quer ir a',ativ:'Para',diz:'Diz ser',por:'Chegou pelo portão de',para:'Entrega para',visita:'Visita a Casa'};
-let S='start',ri=0,ci=0,score=0,total=0,res=null;
-const $=s=>document.querySelector(s);
+let li=0,list=[],tries=0,stars=0,busy=false,view=null;
+const m=document.getElementById('m'),$=s=>document.querySelector(s);
 const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e};
-const btn=(x,c,fn)=>{const b=el('button',c,x);b.onclick=fn;return b};
-const check=(r,c)=>{for(let i=0;i<r.rules.length;i++)if(r.rules[i].f(c))return{i,a:r.rules[i].a};return{i:-1,a:'D'}};
-function rulesBox(r,hit){const b=el('div','box');b.append(el('h3','','Lista do Filch (lida de cima para baixo)'));const o=el('ol','rules');
-r.rules.forEach((u,i)=>{const li=el('li',hit===i?'hit':'');li.append(el('b','',(i+1)+'.'),el('span','',u.x));o.append(li)});
-const v=el('li','inv'+(hit===-1?' hit':''));v.append(el('b','','·'),el('span','','Barrar todo o resto (regra invisível do final)'));o.append(v);b.append(o);
-if(r.caderno){b.append(el('p','intro','Caderno da Rosmerta: pedidos de '+r.caderno.join(' e ')+'.'))}return b}
-function cardBox(c){const b=el('div','box');b.append(el('h3','','Quem chegou ao portão'));const d=el('dl','pc');
-for(const k of ['nome','id','casa','dest','ativ','diz','por','para','visita']){if(c[k]!==undefined&&!(k==='casa'&&c.id)){d.append(el('dt','',LB[k]),el('dd','',c[k]))}}b.append(d);return b}
-function render(){const st=$('#stage');st.replaceChildren();$('#stats').textContent=S==='start'?'':'Rodada '+Math.min(ri+1,R.length)+' de '+R.length+' · Acertos: '+score+'/'+total;
-if(S==='start'){st.append(el('h2','','Você é o Filch'),el('p','intro','Cada pessoa que chega ao portão é um pacote de rede. Leia a lista de regras, decida quem passa e descubra por que. São 8 rodadas, e cada uma ensina um conceito de ACL, firewall ou ZPF.'),btn('Começar','main',()=>{S='play';render()}));return}
-if(S==='end'){const m=score>=total*.85?'Pronto para guardar qualquer portão.':score>=total*.6?'Bom trabalho. Reveja as rodadas em que errou.':'Releia as explicações e tente de novo.';
-st.append(el('h2','','Fim de jogo'),el('p','big',score+' de '+total),el('p','intro',m),btn('Jogar de novo','main',()=>{S='start';ri=ci=score=total=0;render()}));return}
-const r=R[ri];st.append(el('h2','',r.t),el('p','intro',r.intro));
-if(S==='lesson'){st.append(rulesBox(r,-2));const b=el('div','box');b.append(el('h3','','O que você descobriu'),el('strong','',r.L.t),el('p','',r.L.x),el('pre','',r.L.c));st.append(b);
-st.append(btn(ri===R.length-1?'Ver resultado':'Próxima rodada','main',()=>{ri++;ci=0;S=ri>=R.length?'end':'play';render()}));return}
-const c=r.cards[ci];st.append(rulesBox(r,res?res.i:-2),cardBox(c));
-if(!res){const bs=el('div','btns');bs.append(btn('Deixar passar','go',()=>answer('P')),btn('Barrar','stop',()=>answer('D')));st.append(bs)}
-else{const f=el('div','fb '+(res.ok?'ok':'bad'));f.setAttribute('role','status');
-f.append(el('strong','',(res.ok?'Certo! ':'Quase. ')+(c.a==='P'?'Esse pacote passa.':'Esse pacote é barrado.')),el('span','',(res.i>=0?'Regra '+(res.i+1)+' combinou. ':'Nenhuma regra combinou. ')+c.w));st.append(f);
-const last=ci===r.cards.length-1;st.append(btn(last?'Ver o que você descobriu':'Próximo pacote','main',()=>{res=null;if(last){S='lesson'}else{ci++}render()}))}}
-function answer(a){const r=R[ri],c=r.cards[ci],k=check(r,c);c.a=k.a;total++;const ok=a===k.a;if(ok)score++;res={ok,i:k.i};render();const f=document.querySelector('.fb');if(f)f.scrollIntoView({block:'nearest'})}
-render();
+const btn=(x,c,fn,d)=>{const b=el('button',c,x);b.onclick=fn;if(d)b.disabled=true;return b};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const rule=(lv,id)=>lv.rules.find(r=>r.id===id);
+function render(){m.replaceChildren();const lv=L[li];$('#stats').textContent=view==='start'?'':(li<L.length?'Fase '+(li+1)+' de '+L.length:'')+' · Estrelas: '+stars;
+if(view==='start'){m.append(el('h2','','Você escreve a lista'),el('p','mut','Dessa vez, você não só decide: você monta a lista de regras do Filch. Escolha as regras, coloque na ordem certa e abra o portão para ver as corujas passarem ou serem barradas.'),btn('Começar','main',()=>{view='play';render()}));return}
+if(view==='end'){m.append(el('h2','','Fim de jogo'),el('p','big','★ '+stars+' de '+L.length*3),el('p','mut','Você escreveu quatro listas de regras de verdade. É isso que se faz em ACLs e no ZPF: escolher as regras, cuidar da ordem e testar.'),btn('Jogar de novo','main',()=>{li=0;list=[];tries=0;stars=0;view='start';render()}));return}
+m.append(el('h2','',lv.t),el('p','mut','Objetivo: '+lv.goal));
+const sc=el('div','scene');sc.id='sc';sc.append(el('span','w','Quem chega'),el('div','g','🚪'),el('span','c','Castelo 🏰'));sc.firstChild.nextSibling.append(el('small','','Filch'));m.append(sc);
+const cols=el('div','cols');
+const A=el('div','box');A.append(el('h3','','Regras disponíveis'));
+lv.rules.filter(r=>!list.includes(r.id)).forEach(r=>{const d=el('div','rule');d.append(el('span','tag '+(r.a==='P'?'p':'d'),r.a==='P'?'PERMITE':'BARRA'),el('span','t',r.x),btn('Usar','s',()=>{list.push(r.id);view='play';res=null;render()},busy));A.append(d)});
+if(!A.querySelector('.rule'))A.append(el('p','mut','Todas as regras estão na lista.'));
+const B=el('div','box');B.append(el('h3','','Sua lista (lida de cima para baixo)'));
+list.forEach((id,i)=>{const r=rule(lv,id),d=el('div','rule');d.append(el('b','n',(i+1)+'.'),el('span','t',r.x),btn('↑','s',()=>mv(i,-1),busy||i===0),btn('↓','s',()=>mv(i,1),busy||i===list.length-1),btn('✕','s',()=>{list.splice(i,1);res=null;render()},busy));d.firstChild.setAttribute('aria-hidden','true');B.append(d)});
+if(!list.length)B.append(el('p','mut','Vazia. Se você abrir o portão assim, ninguém passa.'));
+B.append(el('div','rule',''));B.lastChild.className='rule';B.lastChild.style.opacity='.6';B.lastChild.append(el('b','n','·'),el('span','t','Barrar todo o resto (regra invisível do final)'));
+cols.append(A,B);m.append(cols);
+const r1=el('div','row');r1.append(btn('Abrir o portão e testar','main',run,busy||!list.length),btn('Limpar a lista','',()=>{list=[];res=null;render()},busy||!list.length));m.append(r1);
+if(res){const b=el('div','box');b.append(el('h3','','Resultado do teste'));res.forEach(o=>{const d=el('div','res '+(o.ok?'ok':'no'));d.append(el('span','i',o.ok?'✓':'✗'));const s=el('span','',o.p.n+': '+(o.a==='P'?'passou':'foi barrado')+(o.i>=0?' (regra '+(o.i+1)+')':' (regra invisível)')+(o.ok?'':'. Deveria '+(o.p.e==='P'?'passar':'ser barrado')+': '+o.p.w));d.append(s);b.append(d)});m.append(b)}
+if(res&&res.every(o=>o.ok)){const w=el('div','win');const st=tries===1?3:tries===2?2:1;w.append(el('strong','','Lista aprovada! '+'★'.repeat(st)+' ('+tries+(tries===1?' tentativa':' tentativas')+')'),el('p','',lv.lesson));
+const cfg=(lv.head?lv.head+'\n':'')+list.map(id=>rule(lv,id).c).join('\n')+(lv.tail?'\n'+lv.tail:'');w.append(el('p','','Na prática, a sua lista vira isto no roteador:'),el('pre','',cfg));
+w.append(btn(li===L.length-1?'Ver resultado':'Próxima fase','main',()=>{stars+=st;li++;list=[];tries=0;res=null;view=li>=L.length?'end':'play';render()}));m.append(w)}
+else if(res&&tries>=2){m.append(Object.assign(el('div','hint'),{textContent:'Dica: '+lv.hint}))}}
+let res=null;
+function mv(i,d){[list[i],list[i+d]]=[list[i+d],list[i]];res=null;render()}
+async function run(){if(busy)return;busy=true;res=null;render();const lv=L[li],rs=list.map(id=>rule(lv,id));
+const out=lv.pk.map(p=>{const i=rs.findIndex(r=>r.f(p.p));const a=i>=0?rs[i].a:'D';return{p,i,a,ok:a===p.e}});
+const sc=$('#sc');
+for(const o of out){const c=el('div','chip '+(o.a==='P'?'p':'d'),'🦉 '+o.p.n);sc.append(c);
+if(reduce){await sleep(150)}else{await sleep(30);c.style.left='38%';await sleep(800);if(o.a==='P'){c.style.left='62%';await sleep(800)}else{c.textContent='✋ '+o.p.n;await sleep(700)}}
+c.remove()}
+tries++;res=out;busy=false;render();const w=document.querySelector('.res');if(w)w.scrollIntoView({block:'nearest'})}
+view='start';render();
 </script>
 </body>
 </html>
